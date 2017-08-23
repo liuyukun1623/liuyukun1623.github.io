@@ -1,37 +1,89 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/liuyukun1623/liuyukun1623.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<!DOCTYPE HTML>
+<html>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="http://www.softwhy.com/" />
+  <title>点击弹出窗口效果-蚂蚁部落</title>
+  <style type="text/css">
+    body,
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+/*遮罩层*/
+    #faqbg {
+      background-color: #666666;
+      position: absolute;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      display: none;
+      width: 100%;
+      height: 1000px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+      -moz-opacity: 0.5;
+    }
+/*被弹出的窗口*/
+    #faqdiv {
+      position: absolute;
+      width: 400px;
+      left: 50%;
+      top: 50%;
+      margin-left: -200px;
+      height: auto;
+      z-index: 100;
+      background-color: #fff;
+      border: 1px #8FA4F5 solid;
+      padding: 1px;
+    }
 
-### Markdown
+    #faqdiv h2 {
+      height: 25px;
+      font-size: 14px;
+      background-color: #8FA4F5;
+      position: relative;
+      padding-left: 10px;
+      line-height: 25px;
+    }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    #faqdiv h2 a {
+      position: absolute;
+      right: 5px;
+      font-size: 12px;
+      color: #FF0000
+    }
+  </style>
+  <script type="text/javascript" src="http://www.softwhy.com/mytest/jQuery/jquery-1.8.3.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $(".but").click(function() {
+        $("#faqbg").css({
+          display: "block",
+          height: $(document).height()
+        });
+        $("#faqdiv").css("top", "100px");
+        $("#faqdiv").css("display", "block");
+      });
+      $(".close").click(function() {
+        $("#faqbg").css("display", "none");
+        $("#faqdiv").css("display", "none");
+      })
+    })
+  </script>
+</head>
 
-```markdown
-Syntax highlighted code block
+<body>
+  <div id="faqbg"></div>
+  <div id="faqdiv" style="display:none">
+    <h2>信息窗口<a href="#" class="close">关闭</a></h2>
+    <div class="form">这里是提示信息！！</div>
+  </div>
+  <p align="center">
+    <input value="点击弹出窗口" class="but" type="button" />
+  </p>
+</body>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/liuyukun1623/liuyukun1623.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</html>
